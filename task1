@@ -9,19 +9,12 @@ constraint ck_8 check(completed_on <= task_deadline));
 
 
 
-insert into installion8 (emp_id,task_name,task_deadline,task_status,completed_on)
-values(1,'oracle_installion',to_date('20-12-2019','dd-mm-yyyy'),'success',to_date('19-12-2019','dd-mm-yyyy'));
-
-
-
-
-
-alter table installion add(priority varchar2(10),create_date date  default sysdate,
+alter table installion8 add(priority varchar2(10),create_date timestamp default current_timestamp,
 modify_date date );
 
 
-insert into installion(priority,modify_date)values(1,(to_date('26-12-2019' 'dd-mm-yyyy')));
-
+insert into installion8 (emp_id,task_name,task_deadline,task_status,completed_on,priority,modify_date)
+values(1,'oracle_installion',to_date('20-12-2019','dd-mm-yyyy'),'success',to_date('19-12-2019','dd-mm-yyyy'),1,to_date('20-12-2019','dd-mm-yyyy'));
 
 
 
