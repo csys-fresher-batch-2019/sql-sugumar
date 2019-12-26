@@ -1,6 +1,29 @@
-create table installion(emp_id varchar2(30) not null,task_name varchar2(30)not null,task_deadline date not null,
-task_status varchar2(30)check('sucess','pending'),completed_date  date check(completed_on < 27-12-2019);
+
+create table installion8(
+emp_id varchar2(30) not null,
+task_name varchar2(30) not null,
+task_deadline date,
+task_status varchar2(30),
+completed_on date,
+constraint ck_8 check(completed_on <= task_deadline));
 
 
-insert into installion (emp_id,task_name,task_deadline,task_status,completed_date)values(1,
-'oracle_installion',20-12-2019,success,26-12-2019);
+
+insert into installion8 (emp_id,task_name,task_deadline,task_status,completed_on)
+values(1,'oracle_installion',to_date('20-12-2019','dd-mm-yyyy'),'success',to_date('19-12-2019','dd-mm-yyyy'));
+
+
+
+
+
+alter table installion add(priority varchar2(10),create_date date  default sysdate,
+modify_date date );
+
+
+insert into installion(priority,modify_date)values(1,(to_date('26-12-2019' 'dd-mm-yyyy')));
+
+
+
+
+
+
