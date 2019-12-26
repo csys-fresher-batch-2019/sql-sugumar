@@ -7,3 +7,4 @@ insert into task_1(user_id,task_name,gmail_id,password,salary)values(4,'postgres
 insert into task_1(user_id,task_name,gmail_id,password,salary)values(5,'mysql','sri@gmal.com','1234',2000);
 
 select * from task_1;
+select user_id,max(salary) from task_1;
