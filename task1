@@ -1,0 +1,6 @@
+create table installion(emp_id varchar2(30) not null,task_name varchar2(30)not null,task_deadline date not null,
+task_status varchar2(30)check('sucess','pending'),completed_date  date check(completed_on < 27-12-2019);
+
+
+insert into installion (emp_id,task_name,task_deadline,task_status,completed_date)values(1,
+'oracle_installion',20-12-2019,success,26-12-2019);
