@@ -8,3 +8,5 @@ insert into task_1(user_id,task_name,gmail_id,password,salary)values(5,'mysql','
 
 select * from task_1;
 select user_id,max(salary) from task_1;
+
+                                                          
