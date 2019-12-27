@@ -22,11 +22,11 @@ delivered_date date ,
 amount number(30),
 constraint ck_2 check(total_amount>0),
 quantity number(30) not null,
-order_status varchar2(30) not null,
+status varchar2(30) not null,
 comments varchar2(30),total_amount varchar2(30));
 
-insert into usersorder(order_id,username,delivered_date,book_id,total_amount,quantity,order_status,comments,amount)
-values(1,'hope',(sysdate+3),1,300,1,'order has been placed','not delivered yet',300);               
+insert into usersorder(order_id,username,delivered_date,book_id,total_amount,quantity,status,comments,amount)
+values(1,'hope',(sysdate+3),1,300,1,'ordered','not delivered yet',300);               
                   
                                             
                                             
