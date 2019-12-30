@@ -12,10 +12,10 @@
 ```sql
 
 create table person_info(
-        person_id number(10) primary KEY,
-        first_name varchar2(10),
+        person_id number(10)not null primary KEY,
+        first_name varchar2(10)not null,
         last_name varchar2(10),
-        date_of_birth date);
+        date_of_birth date)not null;
         ```
 
 ```sql
@@ -93,7 +93,7 @@ select * from student_info;
   ### feature4 to view the results of the student.
   
 create table credit(student_id number,
-        course_id number(20),
+        course_id number(20)not null,
         grade varchar2(5) not null,
         attempt varchar2(4),
         constraint credit_student_id_fk2 foreign key(student_id) references student_info(student_id),
