@@ -16,6 +16,9 @@ create table person_info(
         first_name varchar2(10),
         last_name varchar2(10),
         date_of_birth date);
+        ```
+
+```sql
              
             insert into person_info(person_id,first_name,last_name,date_of_birth) values
             (1,'anand','m','21-apr-96');
