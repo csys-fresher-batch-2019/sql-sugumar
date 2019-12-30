@@ -113,7 +113,7 @@ create table credit(student_id number,
             
         
         
-        select * from credit
+        select * from credit;
   
   
   
