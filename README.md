@@ -49,7 +49,7 @@ create table person_info(
 
 create table student_info(
             student_id number(10) primary key,
-            person_id number(10) not null,
+            person_id number(10),
             email varchar2(20) not null ,
             constraint student_info_fk1 foreign key(person_id) references person_info(person_id));
 
