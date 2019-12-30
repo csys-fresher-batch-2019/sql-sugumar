@@ -93,7 +93,7 @@ select * from student_info;
   ### feature4 to view the results of the student.
   
 create table credit(student_id number,
-        course_id number(20)not null,
+        course_id number(20),
         grade varchar2(5) not null,
         attempt varchar2(4),
         constraint credit_student_id_fk2 foreign key(student_id) references student_info(student_id),
