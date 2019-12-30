@@ -9,7 +9,7 @@
 
 ### feature1 to view the students information.
 
-...sql
+```sql
 
 create table person_info(
         person_id number(10) primary KEY,
