@@ -71,20 +71,20 @@ select * from student_info;
 
 
         create table course_info(course_id number primary key,
-                name varchar2(20) not null,
-                teacher varchar2(20) not null);
+               course_name varchar2(20) not null,
+                staff_name varchar2(20) not null);
                 
-             insert into credit(student_id,course_id,grade,attempt)values(1,1001,'A','3');
-             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'C','1');
-             insert into credit(student_id,course_id,grade,attempt)values(3,1003,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(5,1005,'C','3');
-             insert into credit(student_id,course_id,grade,attempt)values(6,1006,'A','3');
-             insert into credit(student_id,course_id,grade,attempt)values(7,1007,'C','1');
-             insert into credit(student_id,course_id,grade,attempt)values(8,1008,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(9,1009,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(10,1010,'C','3');
-            
+          insert into course_info(course_id,course_name,staff_name)values(1001,'BA','kevin');
+          insert into course_info(course_id,name,teacher)values(1002,'BCA','raj');
+          insert into course_info(course_id,name,teacher)values(1003,'MCA','mercy');
+          insert into course_info(course_id,name,teacher)values(1004,'M.TECH','kaushik');
+          insert into course_info(course_id,name,teacher)values(1005,'B.TECH','muralidhran');
+          insert into course_info(course_id,name,teacher)values(1006,'B.ED','durai');
+          insert into course_info(course_id,name,teacher)values(1007,'MBBS','saravanan');
+          insert into course_info(course_id,name,teacher)values(1008,'vis.com','parthiban');
+          insert into course_info(course_id,name,teacher)values(1009,'M.COM','john')
+          insert into course_info(course_id,name,teacher)values(1010,'B.COM','balaji');
+          
          
             select * from course_info;
             
