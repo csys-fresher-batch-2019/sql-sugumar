@@ -88,6 +88,12 @@ select * from student_info;
          
             select * from course_info;
             
+            alter table course_info add(fees_info number(20)not null);
+            update course_info set fees_info=50000 where course_id=1004;
+            update course_info set fees_info=25000 where course_id=1003;
+            update course_info set fees_info=30000 where course_id=1002;
+            update course_info set fees_info=35000 where course_id=1001;
+            
             
   ### feature4 to view the results of the student.
   
