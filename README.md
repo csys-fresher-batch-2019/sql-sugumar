@@ -10,12 +10,11 @@
 ### feature1 to view the students information.
 
 ```sql
-
 create table person_info(
         person_id number(10) primary KEY,
         first_name varchar2(10)not null,
         last_name varchar2(10),
-        date_of_birth date not null);
+        date_of_birth date not null,date_of_joining timestamp default sysdate);
         ```
 
 ```sql
@@ -32,12 +31,12 @@ create table person_info(
              
              select * from person_info;
 
- person_id| first_name|  last_name| date_of_birth|                                                 
--------------------------------------------------
-1	|anand	      |m	 |21-APR-1996     |
-2	|vijay	      |j	 |22-MAY-1998     |
-3	|ram	      |g	 |08-SEP-1996     |
-4	|naveen	      |d	 |06-SEP-1998     |
+ person_id| first_name|  last_name| date_of_birth|  date_of_joining                                                
+----------------------------------------------------------------------
+1	|anand	      |m	 |21-APR-1996     |30-DEC-19 01.43.48.000000000 PM
+2	|vijay	      |j	 |22-MAY-1998     |31-DEC-19 03.44.58.000000000 PM
+3	|ram	      |g	 |08-SEP-1996     |31-DEC-19 03.43.48.000000000 PM
+4	|naveen	      |d	 |06-SEP-1998     |31-DEC-19 01.49.48.000000000 PM
 
               
               
