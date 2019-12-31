@@ -85,7 +85,7 @@ select * from student_info;
              insert into credit(student_id,course_id,grade,attempt)values(9,1009,'A','2');
              insert into credit(student_id,course_id,grade,attempt)values(10,1010,'C','3');
             
-            
+         
             select * from course_info;
             
             
