@@ -123,12 +123,12 @@ create table credit(student_id number,
         
  select * from credit;
         
- student_id |course_id|grade|attempt|
+ student_id |course_id|grade  |attempt|
 ------------------------------------
-1	  |1001	     |A	   |3      |
-2	  |1002	     |A	   |1      |
-3	  |1003	     |A	   |2      |
-4	  |1004	     |A	   |2      |
+1	  |1001	     |A	      |3      |
+2	  |1002	     |A	      |1      |
+3	  |1003	     |A	      |2      |
+4	  |1004	     |A	      |2      |
 
         
   
