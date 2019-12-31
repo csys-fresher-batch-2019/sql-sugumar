@@ -15,7 +15,7 @@ create table person_info(
         person_id number(10) primary KEY,
         first_name varchar2(10)not null,
         last_name varchar2(10),
-        date_of_birth date)not null;
+        date_of_birth date not null);
         ```
 
 ```sql
