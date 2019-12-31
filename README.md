@@ -89,7 +89,7 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location|
          
             select * from course_info;
             
-            alter table course_info add(fees_info number(20)not null);
+            alter table course_info add(fees_info number(20));
             update course_info set fees_info=50000 where course_id=1004;
             update course_info set fees_info=25000 where course_id=1003;
             update course_info set fees_info=30000 where course_id=1002;
