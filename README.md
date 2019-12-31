@@ -81,9 +81,9 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location|
                 staff_name varchar2(20) not null);
                 
           insert into course_info(course_id,course_name,staff_name)values(1001,'BA','kevin');
-          insert into course_info(course_id,name,teacher)values(1002,'BCA','raj');
-          insert into course_info(course_id,name,teacher)values(1003,'MCA','mercy');
-          insert into course_info(course_id,name,teacher)values(1004,'M.TECH','kaushik');
+          insert into course_info(course_id,course_name,staff_name)values(1002,'BCA','raj');
+          insert into course_info(course_id,course_name,staff_name)values(1003,'MCA','mercy');
+          insert into course_info(course_id,course_name,staff_name)values(1004,'M.TECH','kaushik');
         
           
          
