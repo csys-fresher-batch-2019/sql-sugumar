@@ -21,29 +21,28 @@ create table person_info(
 ```sql
              
             insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (1,'anand','m','21-apr-96');
+            (1,'anand','m','21-apr-1996');
             insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (2,'vijay','j','22-may-98');
+            (2,'vijay','j','22-may-1998');
             insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (3,'ram','g','08-sep-96');
+            (3,'ram','g','08-sep-1996');
             insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (4,'naveen','d','06-sep-98');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (5,'magesh','t','02-aug-99');
-             insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (6,'ravi','m','25-may-97');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (7,'vikram','j','22-jun-98');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (8,'suri','g','10-dec-97');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (9,'sandy','d','03-mar-98');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
-            (10,'magi','t','20-aug-96');           
+            (4,'naveen','d','06-sep-1998');
+                      
              
              select * from person_info;
 
+ person_id| first_name|  last_name| date_of_birth|                                                 
+-------------------------------------------------
+1	|anand	      |m	 |21-APR-1996     |
+2	|vijay	      |j	 |22-MAY-1998     |
+3	|ram	      |g	 |08-SEP-1996     |
+4	|naveen	      |d	 |06-SEP-1998     |
 
+              
+              
+              
+              
 ### features2  to view student the personal information.
 
 create table student_info(
@@ -57,15 +56,23 @@ insert into student_info(student_id,person_id,email)values(1,1,'anand@mail.com')
 insert into student_info(student_id,person_id,email)values(2,2,'vj@mail.com');
 insert into student_info(student_id,person_id,email)values(3,3,'ram@mail.com');
 insert into student_info(student_id,person_id,email)values(4,4,'navi@mail.com');
-insert into student_info(student_id,person_id,email)values(5,5,'magi@mail.com');
-insert into student_info(student_id,person_id,email)values(6,6,'ravi@mail.com')
-insert into student_info(student_id,person_id,email)values(7,7,'vikram@mail.com');
-insert into student_info(student_id,person_id,email)values(8,8,'suri@mail.com');
-insert into student_info(student_id,person_id,email)values(9,9,'sandy@mail.com');
-insert into student_info(student_id,person_id,email)values(10,10,'magi@mail.com');
 
 
+ alter table student_info add(location varchar2(20));
+ update student_info set location='chennai' where person_id=1;
+ update student_info set location='thiruvallur' where person_id=3;
+ update student_info set location='tirchy' where person_id=2;
+ update student_info set location='chennai' where person_id=4;
+ 
 select * from student_info;
+
+STUDENT_ID| PERSON_ID| EMAIL|      |location|
+--------------------------------------
+1	|1	    |anand@mail.com  |chennai
+2	|2	    |vj@mail.com     |tirchy
+3	|3	    |ram@mail.com    |thiruvallur
+4	|4	    |navi@mail.com   |chennai
+
 
 ### feature3 to view the students course details.
 
@@ -78,12 +85,7 @@ select * from student_info;
           insert into course_info(course_id,name,teacher)values(1002,'BCA','raj');
           insert into course_info(course_id,name,teacher)values(1003,'MCA','mercy');
           insert into course_info(course_id,name,teacher)values(1004,'M.TECH','kaushik');
-          insert into course_info(course_id,name,teacher)values(1005,'B.TECH','muralidhran');
-          insert into course_info(course_id,name,teacher)values(1006,'B.ED','durai');
-          insert into course_info(course_id,name,teacher)values(1007,'MBBS','saravanan');
-          insert into course_info(course_id,name,teacher)values(1008,'vis.com','parthiban');
-          insert into course_info(course_id,name,teacher)values(1009,'M.COM','john')
-          insert into course_info(course_id,name,teacher)values(1010,'B.COM','balaji');
+        
           
          
             select * from course_info;
@@ -94,7 +96,15 @@ select * from student_info;
             update course_info set fees_info=30000 where course_id=1002;
             update course_info set fees_info=35000 where course_id=1001;
             
-            
+ cousre_id| course_name| staff_name|  fees_info|
+-----------------------------------------------
+1001	 |BA	         |kevin        |35000 |
+1002	 |BCA	         |raj          |30000 |
+1003	 |MCA	         |mercy        |25000 |
+1004	 |M.TECH	 |kaushik      |50000 |
+
+ select * from course_info;
+ 
   ### feature4 to view the results of the student.
   
 create table credit(student_id number,
@@ -109,20 +119,16 @@ create table credit(student_id number,
              insert into credit(student_id,course_id,grade,attempt)values(2,1002,'C','1');
              insert into credit(student_id,course_id,grade,attempt)values(3,1003,'A','2');
              insert into credit(student_id,course_id,grade,attempt)values(4,1004,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(5,1005,'C','3');
-             insert into credit(student_id,course_id,grade,attempt)values(6,1006,'A','3');
-             insert into credit(student_id,course_id,grade,attempt)values(7,1007,'C','1');
-             insert into credit(student_id,course_id,grade,attempt)values(8,1008,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(9,1009,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(10,1010,'C','3');
             
         
+ select * from credit;
         
-        select * from credit;
-        
-        
+ student_id |course_id|grade|attempt|
+------------------------------------
+1	  |1001	     |A	   |3      |
+2	  |1002	     |A	   |1      |
+3	  |1003	     |A	   |2      |
+4	  |1004	     |A	   |2      |
 
-        
-        
         
   
