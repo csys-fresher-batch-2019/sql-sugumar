@@ -77,13 +77,16 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location|
 
 
         create table course_info(course_id number primary key,
-               course_name varchar2(20) not null,
+               course_name varchar2(20) not null,student_name varchar2(10)not null,
                 staff_name varchar2(20) not null);
                 
-          insert into course_info(course_id,course_name,staff_name)values(1001,'BA','kevin');
-          insert into course_info(course_id,course_name,staff_name)values(1002,'BCA','raj');
-          insert into course_info(course_id,course_name,staff_name)values(1003,'MCA','mercy');
-          insert into course_info(course_id,course_name,staff_name)values(1004,'M.TECH','kaushik');
+                
+          insert into course_info(course_id,course_name,student_name,staff_name)values(1001,'BA','anand','kevin');
+          insert into course_info(course_id,course_name,student_name,staff_name)values(1002,'BCA','vijay','raj');
+          insert into course_info(course_id,course_name,student_name,staff_name)values(1003,'MCA','ram','mercy');
+          insert into course_info(course_id,course_name,student_name,staff_name)values(1004,'M.TECH','naveen','kaushik');
+          
+          select * from course_info;
         
           
          
@@ -95,12 +98,12 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location|
             update course_info set fees_info=30000 where course_id=1002;
             update course_info set fees_info=35000 where course_id=1001;
             
- cousre_id| course_name| staff_name|  fees_info|
------------------------------------------------
-1001	 |BA	         |kevin        |35000 |
-1002	 |BCA	         |raj          |30000 |
-1003	 |MCA	         |mercy        |25000 |
-1004	 |M.TECH	 |kaushik      |50000 |
+ cousre_id| course_name| staff_name|  fees_info|student_name|
+-------------------------------------------------------------
+1001	 |BA	         |kevin        |35000  |anand
+1002	 |BCA	         |raj          |30000  |vijay
+1003	 |MCA	         |mercy        |25000  |ram
+1004	 |M.TECH	 |kaushik      |50000  |naveen
 
  select * from course_info;
  
