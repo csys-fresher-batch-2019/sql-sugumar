@@ -42,8 +42,8 @@ create table person_info(
               
               
               
-### feature2  to view student the personal details.
-
+### feature2  to view the student's  personal details.
+```sql
 create table student_info(
             student_id number(10) primary key,
             person_id number(10),
@@ -85,8 +85,8 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location| year_of_passing
 4	|4	    |navi@mail.com   |chennai      |2018(may)
 
  
-### feature3 to view the students course details.
-
+### feature3 to view the students course information.
+```sql
 
         create table course_info(course_id number primary key,
                course_name varchar2(20) not null,student_name varchar2(10)not null,
@@ -133,7 +133,8 @@ update course_info set job_status='placed' where course_id=1004;
 
  select * from course_info;
  
-  ### feature4 to view the results of the student.
+  ### feature4 to view the results of the students.
+  ```sql
   
 create table credit(student_id number,
         course_id number(20),
