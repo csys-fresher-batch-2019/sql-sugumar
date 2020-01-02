@@ -131,20 +131,30 @@ create table credit(student_id number,
         constraint credit_course_fk foreign key(course_id) references course_info(course_id));
         
         
-              insert into credit(student_id,course_id,grade,attempt)values(1,1001,'A','3');
-             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'C','1');
-             insert into credit(student_id,course_id,grade,attempt)values(3,1003,'A','2');
-             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'A','2');
+             insert into credit(student_id,course_id,grade,attempt)values(1,1001,'3');
+             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'1');
+             insert into credit(student_id,course_id,grade,attempt)values(3,1003,'2');
+             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'2');
             
         
- select * from credit;
-        
- student_id |course_id|grade  |attempt|
-------------------------------------
-1	  |1001	     |A	      |3      |
-2	  |1002	     |A	      |1      |
-3	  |1003	     |A	      |2      |
-4	  |1004	     |A	      |2      |
+ 
+ alter table credit add(CGPA varchar2(20));
+ 
+update credit set cgpa=6.2 where course_id=1001;
+update credit set cgpa=7.1 where course_id=1002;
+update credit set cgpa=6.5 where course_id=1003;
+update credit set cgpa=7.7 where course_id=1004;
+
+select * from credit
+
+alter table credit add(CGPA varchar2(20));
+
+student_id |course_id |cgpa     |attempt
+-----------------------------------------
+1	  |1001	      |6.2	      |3      
+2	  |1002	      |7.1	      |1      
+3	  |1003	      |6.5	      |2      
+4	  |1004	      |7.7	      |2      
 
         
   
