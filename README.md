@@ -15,9 +15,7 @@ create table person_info(
         student_name varchar2(10)not null,
         last_name varchar2(10),
         date_of_birth date not null,date_of_joining timestamp default sysdate);
-        ```
-
-```sql
+       
              
             insert into person_info(person_id,student_name,last_name,date_of_birth) values
             (1,'anand','m','21-apr-1996');
@@ -41,7 +39,7 @@ create table person_info(
               
               
               
-              
+  ```            
 ### feature2  to view the student's  personal details.
 ```sql
 create table student_info(
@@ -84,7 +82,7 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location| year_of_passing
 3	|3	    |ram@mail.com    |thiruvallur  |2018(dec)
 4	|4	    |navi@mail.com   |chennai      |2018(may)
 
- 
+ ```
 ### feature3 to view the students course information.
 ```sql
 
@@ -132,7 +130,7 @@ update course_info set job_status='placed' where course_id=1004;
 
 
  select * from course_info;
- 
+ ```
   ### feature4 to view the results of the students.
   ```sql
   
@@ -170,3 +168,4 @@ student_id |course_id |cgpa     |attempt
 
         
   
+```
