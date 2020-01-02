@@ -63,16 +63,28 @@ insert into student_info(student_id,person_id,email)values(4,4,'navi@mail.com');
  update student_info set location='tirchy' where person_id=2;
  update student_info set location='chennai' where person_id=4;
  
+ 
+ 
+ alter table student_info add(year_of_passing varchar2(20));
+
+update student_info set year_of_passing='2018(may)' where student_id=1
+update student_info set year_of_passing='2018(dec)' where student_id=2;
+update student_info set year_of_passing='2018(dec)' where student_id=3;
+update student_info set year_of_passing='2018(may)' where student_id=4;
+
+ 
+ 
+ 
 select * from student_info;
 
-STUDENT_ID| PERSON_ID| EMAIL|      |location|
---------------------------------------
-1	|1	    |anand@mail.com  |chennai
-2	|2	    |vj@mail.com     |tirchy
-3	|3	    |ram@mail.com    |thiruvallur
-4	|4	    |navi@mail.com   |chennai
+STUDENT_ID| PERSON_ID| EMAIL|      |location| year_of_passing
+----------------------------------------------------------
+1	|1	    |anand@mail.com  |chennai      |2018(may)
+2	|2	    |vj@mail.com     |tirchy       |2018(dec)
+3	|3	    |ram@mail.com    |thiruvallur  |2018(dec)
+4	|4	    |navi@mail.com   |chennai      |2018(may)
 
-
+ 
 ### feature3 to view the students course details.
 
 
@@ -131,10 +143,10 @@ create table credit(student_id number,
         constraint credit_course_fk foreign key(course_id) references course_info(course_id));
         
         
-             insert into credit(student_id,course_id,grade,attempt)values(1,1001,'3');
-             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'1');
+             insert into credit(student_id,course_id,grade,attempt)values(1,1001,'1');
+             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'2');
              insert into credit(student_id,course_id,grade,attempt)values(3,1003,'2');
-             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'2');
+             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'1');
             
         
  
@@ -151,10 +163,10 @@ alter table credit add(CGPA varchar2(20));
 
 student_id |course_id |cgpa     |attempt
 -----------------------------------------
-1	  |1001	      |6.2	      |3      
-2	  |1002	      |7.1	      |1      
+1	  |1001	      |6.2	      |1      
+2	  |1002	      |7.1	      |2      
 3	  |1003	      |6.5	      |2      
-4	  |1004	      |7.7	      |2      
+4	  |1004	      |7.7	      |1      
 
         
   
