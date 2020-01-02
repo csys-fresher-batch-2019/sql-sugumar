@@ -137,7 +137,6 @@ update course_info set job_status='placed' where course_id=1004;
   
 create table credit(student_id number,
         course_id number(20),
-        grade varchar2(5) not null,
         attempt varchar2(4),
         constraint credit_student_id_fk2 foreign key(student_id) references student_info(student_id),
         constraint credit_course_fk foreign key(course_id) references course_info(course_id));
@@ -150,7 +149,7 @@ create table credit(student_id number,
             
         
  
- alter table credit add(CGPA varchar2(20));
+ alter table credit add(CGPA decimal(10,2));
  
 update credit set cgpa=6.2 where course_id=1001;
 update credit set cgpa=7.1 where course_id=1002;
