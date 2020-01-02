@@ -42,7 +42,7 @@ create table person_info(
               
               
               
-### features2  to view student the personal information.
+### feature2  to view student the personal details.
 
 create table student_info(
             student_id number(10) primary key,
