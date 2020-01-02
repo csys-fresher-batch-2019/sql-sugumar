@@ -19,13 +19,13 @@ create table person_info(
 
 ```sql
              
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
+            insert into person_info(person_id,student_name,last_name,date_of_birth) values
             (1,'anand','m','21-apr-1996');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
+            insert into person_info(person_id,student_name,last_name,date_of_birth) values
             (2,'vijay','j','22-may-1998');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
+            insert into person_info(person_id,student_name,last_name,date_of_birth) values
             (3,'ram','g','08-sep-1996');
-            insert into person_info(person_id,first_name,last_name,date_of_birth) values
+            insert into person_info(person_id,student_name,last_name,date_of_birth) values
             (4,'naveen','d','06-sep-1998');
                       
              
