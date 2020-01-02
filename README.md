@@ -93,17 +93,31 @@ STUDENT_ID| PERSON_ID| EMAIL|      |location|
             select * from course_info;
             
             alter table course_info add(fees_info number(20));
+           
             update course_info set fees_info=50000 where course_id=1004;
             update course_info set fees_info=25000 where course_id=1003;
             update course_info set fees_info=30000 where course_id=1002;
             update course_info set fees_info=35000 where course_id=1001;
             
- cousre_id| course_name| staff_name|  fees_info|student_name|
--------------------------------------------------------------
-1001	 |BA	         |kevin        |35000  |anand
-1002	 |BCA	         |raj          |30000  |vijay
-1003	 |MCA	         |mercy        |25000  |ram
-1004	 |M.TECH	 |kaushik      |50000  |naveen
+            alter table course_info add(job_status varchar2(20));
+
+update course_info set job_status='placed' where course_id=1001;
+update course_info set job_status='not placed' where course_id=1002;
+update course_info set job_status='placed' where course_id=1003;
+update course_info set job_status='placed' where course_id=1004;
+
+            
+            
+ cousre_id| course_name| staff_name|  fees_info|student_name| job_status|
+------------------------------------------------------------------------
+1001	 |BA	         |kevin        |35000  |anand        |placed
+1002	 |BCA	         |raj          |30000  |vijay        |not placed
+1003	 |MCA	         |mercy        |25000  |ram          |placed
+1004	 |M.TECH	 |kaushik      |50000  |naveen       |placed  
+            
+            
+            
+
 
  select * from course_info;
  
