@@ -228,6 +228,8 @@ student_id|person_id|email|location|year_of_passing|
 
 6.the procedure to update grade.
 
+update credit set cgpa=5.1 where student_id=3;
+
 create or replace procedure cgpa(stu_id in number)
 as v_check decimal;
 begin
