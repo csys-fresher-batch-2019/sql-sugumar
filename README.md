@@ -159,12 +159,12 @@ select * from credit
 
 alter table credit add(CGPA varchar2(20));
 
-student_id |course_id |cgpa     |attempt
------------------------------------------
-1	  |1001	      |6.2	      |1      
-2	  |1002	      |7.1	      |2      
-3	  |1003	      |6.5	      |2      
-4	  |1004	      |7.7	      |1      
+student_id |course_id |cgpa     |attempt |grade
+--------------------------------------------------
+1	  |1001	      |8.1	      |1  |A    
+2	  |1002	      |6.1	      |2  |C   
+3	  |1003	      |6.5	      |2  |C    
+4	  |1004	      |8.7	      |1  |A    
 
         
   
