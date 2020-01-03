@@ -190,7 +190,7 @@ and p.person_id=1;
 -------------------------------------------------
 |anand	     |BA	       |8.2	  |1  
 
-2.to check wheather the got placed.
+2. to check wheather the got placed.
 
 select count(job_status) from course_info where job_status='placed';
 
