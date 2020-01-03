@@ -75,8 +75,8 @@ update student_info set year_of_passing='2018(may)' where student_id=4;
  
 select * from student_info;
 
-STUDENT_ID| PERSON_ID| EMAIL|      |location| year_of_passing
-----------------------------------------------------------
+STUDENT_ID| PERSON_ID| EMAIL|        |location  | year_of_passing
+-------------------------------------------------------------
 1	|1	    |anand@mail.com  |chennai      |2018(may)
 2	|2	    |vj@mail.com     |tirchy       |2018(dec)
 3	|3	    |ram@mail.com    |thiruvallur  |2018(dec)
@@ -173,3 +173,46 @@ student_id |course_id |cgpa     |attempt |grade
         
   
 ```
+###secnario
+```
+
+1.select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+p.person_id = cr.student_id and c.course_id = cr.course_id 
+and p.person_id=1;
+
+|student_name|person_id|course_name|person_id
+-------------------------------------------------
+|anand	     |BA	       |8.2	  |1  
+
+2.to check wheather the got placed.
+
+select count(job_status) from course_info where job_status='placed';
+
+count(status)
+--------------
+2
+
+
+3.number of attempts they where taken to clear.
+select count(attempt) from credit where attempt='2'
+count(attempt)
+----------------
+2
+
+eligibility check.
+
+4.select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+p.person_id = cr.student_id and c.course_id = cr.course_id 
+and cgpa>7
+student_name|course_name|cgpa|person_id
+----------------------------------------
+anand	     | BA	|8.2	|1
+vijay	     |BCA	|7.1	|2
+naveen	     |M.TECH	|7.7	|4
+
+to check the locations;
+5.select * from student_info where location='chennai';
+
+1	1	anand@mail.com	chennai	may(2018)
+4	4	navi@mail.com	chennai	2018(may)
+
