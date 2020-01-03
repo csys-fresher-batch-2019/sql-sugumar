@@ -36,6 +36,9 @@ create table person_info(
 3	|ram	      |g	 |08-SEP-1996     |31-DEC-19 03.43.48.000000000 PM
 4	|naveen	      |d	 |06-SEP-1998     |31-DEC-19 01.49.48.000000000 PM
 
+
+
+
               
               
               
@@ -194,14 +197,15 @@ count(status)
 
 
 3.number of attempts they where taken to clear.
+
 select count(attempt) from credit where attempt='2'
 count(attempt)
 ----------------
 2
 
-eligibility check.
+4.eligibility check.
 
-4.select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
 p.person_id = cr.student_id and c.course_id = cr.course_id 
 and cgpa>7
 student_name|course_name|cgpa|person_id
@@ -210,9 +214,47 @@ anand	     | BA	|8.2	|1
 vijay	     |BCA	|7.1	|2
 naveen	     |M.TECH	|7.7	|4
 
-to check the locations;
-5.select * from student_info where location='chennai';
+5.to check the locations;
 
-1	1	anand@mail.com	chennai	may(2018)
-4	4	navi@mail.com	chennai	2018(may)
+select * from student_info where location='chennai';
+
+student_id|person_id|email|location|year_of_passing|
+--------------------------------------------------
+|1	|1	|anand@mail.com	|chennai	|may(2018)
+|4	|4	|navi@mail.com	|chennai	|may(2018)
+
+6.the procedure to update grade.
+
+create or replace procedure cgpa(stu_id in number)
+as v_check decimal;
+begin
+select cgpa into v_check from credit where student_id=stu_id;
+if(v_check<=6 and v_check>=5)then
+update credit set grade='C' where student_id=stu_id;
+else if (v_check<=7 and v_check>6) then
+update credit set grade='B' where student_id=stu_id;
+else
+update credit set grade='A' where student_id=stu_id;
+end if;
+end if;
+commit;
+end cgpa;
+
+to run the procedure.
+
+declare
+begin
+cgpa(3);
+end;
+
+
+7.to check for the age of the student.
+ select student_name,floor((sysdate-DATE_OF_BIRTH)/365.25) as Age from person_info;
+
+student_name|AGE|
+-----------------
+|anand	   |23
+|vijay	   |21
+|ram	   |23
+|naveen	   |21
 
