@@ -141,10 +141,10 @@ create table credit(student_id number,
         constraint credit_course_fk foreign key(course_id) references course_info(course_id));
         
         
-             insert into credit(student_id,course_id,grade,attempt)values(1,1001,'1');
-             insert into credit(student_id,course_id,grade,attempt)values(2,1002,'2');
-             insert into credit(student_id,course_id,grade,attempt)values(3,1003,'2');
-             insert into credit(student_id,course_id,grade,attempt)values(4,1004,'1');
+             insert into credit(student_id,course_id,attempt)values(1,1001,'1');
+             insert into credit(student_id,course_id,attempt)values(2,1002,'2');
+             insert into credit(student_id,course_id,attempt)values(3,1003,'2');
+             insert into credit(student_id,course_id,attempt)values(4,1004,'1');
             
         
  
