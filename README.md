@@ -149,7 +149,8 @@ create table credit(student_id number,
              insert into credit(student_id,course_id,attempt)values(3,1003,'2');
              insert into credit(student_id,course_id,attempt)values(4,1004,'1');
             
-        
+```
+```sql
  
  alter table credit add(CGPA decimal(10,2));
 
@@ -163,7 +164,8 @@ select * from credit
 alter table credit add(CGPA varchar2(20));
 
 alter table credit add(grade varchar2(10),constraint ck1 check (grade in('A','b','C')));
-
+```
+```sql
 update credit set cgpa=5.1 where student_id=3;
 
 student_id |course_id |cgpa     |attempt |grade
@@ -179,7 +181,7 @@ student_id |course_id |cgpa     |attempt |grade
 ###secnario
 
 
-```
+```sql
 1.to students detail.
 
 select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
@@ -189,7 +191,8 @@ and p.person_id=1;
 |student_name|person_id|course_name|person_id
 -------------------------------------------------
 |anand	     |BA	       |8.2	  |1  
-
+```
+```sql
 2. to check wheather the got placed.
 
 select count(job_status) from course_info where job_status='placed';
@@ -198,14 +201,16 @@ count(status)
 --------------
 2
 
-
+```
+```sql
 3.number of attempts they where taken to clear.
 
 select count(attempt) from credit where attempt='2'
 count(attempt)
 ----------------
 2
-
+```
+```sql
 4.eligibility check.
 
 select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
@@ -216,7 +221,8 @@ student_name|course_name|cgpa|person_id
 anand	     | BA	|8.2	|1
 vijay	     |BCA	|7.1	|2
 naveen	     |M.TECH	|7.7	|4
-
+```
+```sql
 5.to check the locations;
 
 select * from student_info where location='chennai';
@@ -225,7 +231,8 @@ student_id|person_id|email|location|year_of_passing|
 --------------------------------------------------
 |1	|1	|anand@mail.com	|chennai	|may(2018)
 |4	|4	|navi@mail.com	|chennai	|may(2018)
-
+```
+```sql
 6.the procedure to update grade.
 
 update credit set cgpa=5.1 where student_id=3;
@@ -251,7 +258,8 @@ declare
 begin
 cgpa(3);
 end;
-
+```
+```sql
 
 7.to check for the age of the student.
  select student_name,floor((sysdate-DATE_OF_BIRTH)/365.25) as Age from person_info;
