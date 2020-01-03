@@ -177,9 +177,12 @@ student_id |course_id |cgpa     |attempt |grade
   
 ```
 ###secnario
-```
 
-1.select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+
+```
+1.to students detail.
+
+select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
 p.person_id = cr.student_id and c.course_id = cr.course_id 
 and p.person_id=1;
 
