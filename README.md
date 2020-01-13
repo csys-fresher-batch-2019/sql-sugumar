@@ -10,24 +10,24 @@
 ### feature1 to view the students information.
 
 ```sql
-create table person_info(
+create table person_information(
         person_id number(10) primary KEY,
         student_name varchar2(10)not null,
         last_name varchar2(10),
         date_of_birth date not null,date_of_joining timestamp default sysdate);
        
              
-            insert into person_info(person_id,student_name,last_name,date_of_birth) values
+            insert into person_information(person_id,student_name,last_name,date_of_birth) values
             (1,'anand','m','21-apr-1996');
-            insert into person_info(person_id,student_name,last_name,date_of_birth) values
+            insert into person_information(person_id,student_name,last_name,date_of_birth) values
             (2,'vijay','j','22-may-1998');
-            insert into person_info(person_id,student_name,last_name,date_of_birth) values
+            insert into person_information(person_id,student_name,last_name,date_of_birth) values
             (3,'ram','g','08-sep-1996');
-            insert into person_info(person_id,student_name,last_name,date_of_birth) values
+            insert into person_information(person_id,student_name,last_name,date_of_birth) values
             (4,'naveen','d','06-sep-1998');
                       
              
-             select * from person_info;
+             select * from person_information;
 
  person_id| student_name|  last_name| date_of_birth|  date_of_joining                                                
 ----------------------------------------------------------------------
@@ -45,38 +45,38 @@ create table person_info(
   ```            
 ### feature2  to view the student's  personal details.
 ```sql
-create table student_info(
+create table student_information(
             student_id number(10) primary key,
             person_id number(10),
             email varchar2(20) not null ,
             constraint student_info_fk1 foreign key(person_id) references person_info(person_id));
 
 
-insert into student_info(student_id,person_id,email)values(1,1,'anand@mail.com');
-insert into student_info(student_id,person_id,email)values(2,2,'vj@mail.com');
-insert into student_info(student_id,person_id,email)values(3,3,'ram@mail.com');
-insert into student_info(student_id,person_id,email)values(4,4,'navi@mail.com');
+insert into student_information(student_id,person_id,email)values(1,1,'anand@mail.com');
+insert into student_information(student_id,person_id,email)values(2,2,'vj@mail.com');
+insert into student_information(student_id,person_id,email)values(3,3,'ram@mail.com');
+insert into student_information(student_id,person_id,email)values(4,4,'navi@mail.com');
 
 
  alter table student_info add(location varchar2(20));
- update student_info set location='chennai' where person_id=1;
- update student_info set location='thiruvallur' where person_id=3;
- update student_info set location='tirchy' where person_id=2;
- update student_info set location='chennai' where person_id=4;
+ update student_information set location='chennai' where person_id=1;
+ update student_information set location='thiruvallur' where person_id=3;
+ update student_information set location='tirchy' where person_id=2;
+ update student_information set location='chennai' where person_id=4;
  
  
  
- alter table student_info add(year_of_passing varchar2(20));
+ alter table student_information add(year_of_passing varchar2(20));
 
-update student_info set year_of_passing='2018(may)' where student_id=1
-update student_info set year_of_passing='2018(dec)' where student_id=2;
-update student_info set year_of_passing='2018(dec)' where student_id=3;
-update student_info set year_of_passing='2018(may)' where student_id=4;
+update student_information set year_of_passing='2018(may)' where student_id=1
+update student_information set year_of_passing='2018(dec)' where student_id=2;
+update student_information set year_of_passing='2018(dec)' where student_id=3;
+update student_information set year_of_passing='2018(may)' where student_id=4;
 
  
  
  
-select * from student_info;
+select * from student_information;
 
 STUDENT_ID| PERSON_ID| EMAIL|        |location  | year_of_passing
 -------------------------------------------------------------
@@ -89,35 +89,35 @@ STUDENT_ID| PERSON_ID| EMAIL|        |location  | year_of_passing
 ### feature3 to view the students course information.
 ```sql
 
-        create table course_info(course_id number primary key,
+        create table course_information(course_id number primary key,
                course_name varchar2(20) not null,student_name varchar2(10)not null,
                 staff_name varchar2(20) not null);
                 
                 
-          insert into course_info(course_id,course_name,student_name,staff_name)values(1001,'BA','anand','kevin');
-          insert into course_info(course_id,course_name,student_name,staff_name)values(1002,'BCA','vijay','raj');
-          insert into course_info(course_id,course_name,student_name,staff_name)values(1003,'MCA','ram','mercy');
-          insert into course_info(course_id,course_name,student_name,staff_name)values(1004,'M.TECH','naveen','kaushik');
+          insert into course_information(course_id,course_name,student_name,staff_name)values(1001,'BA','anand','kevin');
+          insert into course_information(course_id,course_name,student_name,staff_name)values(1002,'BCA','vijay','raj');
+          insert into course_information(course_id,course_name,student_name,staff_name)values(1003,'MCA','ram','mercy');
+          insert into course_information(course_id,course_name,student_name,staff_name)values(1004,'M.TECH','naveen','kaushik');
           
-          select * from course_info;
+          select * from course_information;
         
           
          
-            select * from course_info;
+            select * from course_information;
             
-            alter table course_info add(fees_info number(20));
+            alter table course_information add(fees_info number(20));
            
-            update course_info set fees_info=50000 where course_id=1004;
-            update course_info set fees_info=25000 where course_id=1003;
-            update course_info set fees_info=30000 where course_id=1002;
-            update course_info set fees_info=35000 where course_id=1001;
+            update course_information set fees_info=50000 where course_id=1004;
+            update course_information set fees_info=25000 where course_id=1003;
+            update course_information set fees_info=30000 where course_id=1002;
+            update course_information set fees_info=35000 where course_id=1001;
             
-            alter table course_info add(job_status varchar2(20));
+            alter table course_information add(job_status varchar2(20));
 
-update course_info set job_status='placed' where course_id=1001;
-update course_info set job_status='not placed' where course_id=1002;
-update course_info set job_status='placed' where course_id=1003;
-update course_info set job_status='placed' where course_id=1004;
+update course_information set job_status='placed' where course_id=1001;
+update course_information set job_status='not placed' where course_id=1002;
+update course_information set job_status='placed' where course_id=1003;
+update course_information set job_status='placed' where course_id=1004;
 
             
             
@@ -132,7 +132,7 @@ update course_info set job_status='placed' where course_id=1004;
             
 
 
- select * from course_info;
+ select * from course_information;
  ```
   ### feature4 to view the results of the students.
   ```sql
@@ -140,8 +140,8 @@ update course_info set job_status='placed' where course_id=1004;
 create table credit(student_id number,
         course_id number(20),
         attempt varchar2(4),
-        constraint credit_student_id_fk2 foreign key(student_id) references student_info(student_id),
-        constraint credit_course_fk foreign key(course_id) references course_info(course_id));
+        constraint credit_student_id_fk2 foreign key(student_id) references student_information(student_id),
+        constraint credit_course_fk foreign key(course_id) references course_information(course_id));
         
         
              insert into credit(student_id,course_id,attempt)values(1,1001,'1');
@@ -182,7 +182,7 @@ student_id |course_id |cgpa     |attempt |grade
 ```sql
 1.to students detail.
 
-select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+select p.student_name,c.course_name,cr.cgpa,p.person_id from course_information c,credit cr,person_information p where 
 p.person_id = cr.student_id and c.course_id = cr.course_id 
 and p.person_id=1;
 
@@ -193,7 +193,7 @@ and p.person_id=1;
 ```sql
 2. to check wheather the got placed.
 
-select count(job_status) from course_info where job_status='placed';
+select count(job_status) from course_information where job_status='placed';
 
 count(status)
 --------------
@@ -211,7 +211,7 @@ count(attempt)
 ```sql
 4.eligibility check.
 
-select p.student_name,c.course_name,cr.cgpa,p.person_id from course_info c,credit cr,person_info p where 
+select p.student_name,c.course_name,cr.cgpa,p.person_id from course_information c,credit cr,person_information p where 
 p.person_id = cr.student_id and c.course_id = cr.course_id 
 and cgpa>7
 student_name|course_name|cgpa|person_id
@@ -223,7 +223,7 @@ naveen	     |M.TECH	|7.7	|4
 ```sql
 5.to check the locations;
 
-select * from student_info where location='chennai';
+select * from student_information where location='chennai';
 
 student_id|person_id|email|location|year_of_passing|
 --------------------------------------------------
@@ -260,7 +260,7 @@ end;
 ```sql
 
 7.to check for the age of the student.
- select student_name,floor((sysdate-DATE_OF_BIRTH)/365.25) as Age from person_info;
+ select student_name,floor((sysdate-DATE_OF_BIRTH)/365.25) as Age from person_information;
 
 student_name|AGE|
 -----------------
