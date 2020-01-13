@@ -159,9 +159,7 @@ update credit set cgpa=7.1 where course_id=1002;
 update credit set cgpa=6.5 where course_id=1003;
 update credit set cgpa=7.7 where course_id=1004;
 
-select * from credit
-
-alter table credit add(CGPA varchar2(20));
+select * from credit;
 
 alter table credit add(grade varchar2(10),constraint ck1 check (grade in('A','b','C')));
 ```
