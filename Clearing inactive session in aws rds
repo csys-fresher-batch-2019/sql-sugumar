@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Set timestamp and environment variables
+dateis=$(date +"%d-%b-%Y_%H:%M:%S"); export dateis
+SCRIPTS_HOME=/root/MM/SCRIPTS; export SCRIPTS_HOME
+LOG_HOME=/root/MM/LOG; export LOG_HOME
+SQL_HOME=$LOG_HOME/SQL; mkdir -p $SQL_HOME
+LOGFILE_NAME=$LOG_HOME/inactive_sessions_$dateis.log; export LOGFILE_NAME
+maillist="forbesdba@doyensys.com"
+
+# Write log header
+echo "===== Inactive Session Cleanup Started at $dateis =====" > "$LOGFILE_NAME"
+
+# Connect to DB, generate dynamic kill commands and capture in SQL file and log
+sqlplus -s 'root/apex123@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=test-db.ap-south-1.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'  << EOF
+SET FEEDBACK OFF
+SET HEADING OFF
+SET LINESIZE 200
+SET TRIMSPOOL ON
+SPOOL /tmp/inactive.sql
+PROMPT -- Sessions to be killed (INACTIVE > 10 mins)
+SELECT
+  '-- Killing SID=' || sid || ', SERIAL#=' || serial# || ' USER=' || username,
+  'BEGIN rdsadmin.rdsadmin_util.kill(sid => ' || sid ||
+  ', serial => ' || serial# || ', method => ''IMMEDIATE''); END;'
+FROM gv\$session
+WHERE status = 'INACTIVE'
+  AND username IS NOT NULL
+  AND last_call_et > 600;
+SPOOL OFF
+EXIT;
+EOF
+
+# Add "/" to each block and execute it
+awk '{print; print "/"}' /tmp/inactive.sql > /tmp/inactivekill.sql
+
+# Execute the kill statements and log output
+sqlplus -s 'root/SU5d4e2VGQ@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=vyncke-apex-db.cxo5gxkygdxr.ap-south-1.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'<<EOF
+@/tmp/inactivekill.sql
+exit;
+EOF
+
+# Archive temp files
+mv /tmp/inactivekill.sql /tmp/inactivekill.sql_prev
+mv /tmp/inactive.sql /tmp/inactive.sql_prev
+
+# Final message
+echo "===== Inactive Session Cleanup Completed at $(date +"%d-%b-%Y_%H:%M:%S") =====" >> /tmp/inactive_kill.log
+echo "Log file: $LOGFILE_NAME"
+
+# Optional: Email the log
+# mail -s "Inactive Sessions Cleanup Log - $dateis" $maillist <
