@@ -1,0 +1,56 @@
+[PREPRODDB@ORCL- ~]$vi lob_report.sh
+
+#!/bin/bash
+
+# Set Oracle Environment
+export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
+export ORACLE_SID=YOUR_DB_SID
+export PATH=$ORACLE_HOME/bin:$PATH
+
+# Email details
+EMAIL_TO="your_email@domain.com"
+SUBJECT="LOB Size Report - $(date '+%Y-%m-%d %H:%M')"
+
+# Log file
+LOG_FILE=/tmp/lob_size_report_$(date +%Y%m%d_%H%M).log
+
+# Run SQL
+sqlplus -s / as sysdba <<EOF > $LOG_FILE
+alter session set container=PREPROD
+SET PAGESIZE 200
+SET LINESIZE 200
+SET FEEDBACK OFF
+SET HEADING ON
+
+SELECT 
+    l.owner,
+    l.table_name,
+    l.column_name,
+    l.segment_name,
+    s.tablespace_name,
+    ROUND(SUM(s.bytes) / 1024 / 1024 / 1024, 2) AS size_gb
+FROM 
+    dba_lobs l
+JOIN 
+    dba_segments s 
+    ON l.segment_name = s.segment_name 
+    AND l.owner = s.owner
+    AND s.segment_type LIKE 'LOB%'
+GROUP BY 
+    l.owner, l.table_name, l.column_name, l.segment_name, s.tablespace_name
+ORDER BY 
+    size_gb DESC
+FETCH FIRST 20 ROWS ONLY;
+
+EXIT;
+EOF
+
+# Send Email
+if [ -s "$LOG_FILE" ]; then
+    mailx -s "$SUBJECT" $EMAIL_TO < $LOG_FILE
+fi
+
+# Cleanup old logs (optional - keep 7 days)
+find /tmp -name "lob_size_report_*" -mtime +7 -delete
+
+echo "Report generated and emailed: $LOG_FILE"
