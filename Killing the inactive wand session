@@ -1,4 +1,4 @@
-. /u01/MONITOR/ENV/source_env_scr.sh
+. /u01/MONITOR/ENV/env.sh
 
 maillist=sugumar1220@gmail.com
 LOG_FILE=/u01/MONITOR/SCRIPTS/wand_blocking.log export wand_blocking
