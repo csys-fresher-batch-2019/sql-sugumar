@@ -6,7 +6,7 @@ SCRIPTS_HOME=/root/MM/SCRIPTS; export SCRIPTS_HOME
 LOG_HOME=/root/MM/LOG; export LOG_HOME
 SQL_HOME=$LOG_HOME/SQL; mkdir -p $SQL_HOME
 LOGFILE_NAME=$LOG_HOME/inactive_sessions_$dateis.log; export LOGFILE_NAME
-maillist="forbesdba@doyensys.com"
+maillist="sugumar1220@gmail.com"
 
 # Write log header
 echo "===== Inactive Session Cleanup Started at $dateis =====" > "$LOGFILE_NAME"
@@ -35,7 +35,7 @@ EOF
 awk '{print; print "/"}' /tmp/inactive.sql > /tmp/inactivekill.sql
 
 # Execute the kill statements and log output
-sqlplus -s 'root/SU5d4e2VGQ@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=vyncke-apex-db.cxo5gxkygdxr.ap-south-1.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'<<EOF
+sqlplus -s 'root/SU5d4e2VGQ@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=test-db.dsuguxkygdxr.ap-south-1.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))'<<EOF
 @/tmp/inactivekill.sql
 exit;
 EOF
