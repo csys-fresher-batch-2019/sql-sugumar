@@ -12,7 +12,7 @@ ddl_qry VARCHAR2(650);
 
 
 CURSOR TBL1 IS
-select owner,table_name from dba_tables where table_name IN ('FMS_TM_QUOTES_HEADER' );
+select owner,table_name from dba_tables where table_name IN ('STG_TAX');
 
 
 CURSOR IDX1 IS
